@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arctic Travels</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ asset('css/home.css') }}">
+
+</head>
+
+<body>
+
+<div class="main-wrapper">
+    <nav class="navbar navbar-expand-lg custom-navbar">
+        <div class="container px-3">
+
+        <a class="navbar-brand brand" href="#">
+        <span>A</span>rctic Travels
+        </a>
+
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="nav">
+
+        <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#destination">Destinations</a></li>
+        <li class="nav-item"><a class="nav-link" href="#resort">Resorts</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+        </ul>
+
+        <button class="btn btn-main">
+        Book Here
+        </button>
+
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+
+<section class="hero">
+    <div class="row align-items-center">
+        <div class="col-lg-6">
+
+        <h1>
+            Plan the Perfect
+            <span>Winter Trip</span>
+        </h1>
+
+        <p>
+            Easily plan your ideal ski trip from home with the help of professionals. Experience luxury skiing holidays at world-class resorts with exclusive pricing and personalized support.
+        </p>
+
+        <button class="btn btn-main btn-lg">
+            Book Here
+        </button>
+
+        <div class="booking-box">
+
+            <div class="row align-items-center">
+
+            <div class="col-md-3">
+                <h6>Regions</h6>
+                <p class="mb-0">Zermatt</p>
+            </div>
+
+            <div class="col-md-3">
+                <h6>Lodging</h6>
+                <p class="mb-0"> Chalet</p>
+            </div>
+
+            <div class="col-md-3">
+                <h6>Resorts</h6>
+                <p class="mb-0">Matterhorn</p>
+            </div>
+
+            <div class="col-md-3">
+                <button class="btn btn-main w-100">
+                Search
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="col-lg-6">
+        <div class="image-grid">
+
+            <img class="tall" src="https://images.unsplash.com/photo-1670792761649-3cff5ab6503c?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+
+            <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+
+            <img src="https://images.unsplash.com/photo-1498576260462-eefc9d0ce9f7?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+
+            <img src="https://images.unsplash.com/photo-1645535490445-8b1ed504b70e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cmVzb3J0JTIwd2ludGVyfGVufDB8MXwwfHx8Mg%3D%3D" alt="">
+
+            <img src="https://images.unsplash.com/photo-1517918558653-3a2c5ab393a2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cmVzb3J0JTIwd2ludGVyfGVufDB8MXwwfHx8Mg%3D%3D" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="destination">
+
+    <h2 class="section-title mb-3">
+        Top Destinations
+    </h2>
+
+    <p class="section-text mb-5">
+        Explore premium ski destinations around the world.
+    </p>
+
+    <div class="row text-center">
+
+        <div class="col-lg-2 col-md-4 col-6 mb-4">
+            <div class="destination-card">
+                <img src="https://images.unsplash.com/photo-1507039102241-5ec61d624406?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8emVybWF0dHxlbnwwfHwwfHx8Mg%3D%3D">
+                <h6>Zermatt</h6>
+            </div>
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-6 mb-4">
+            <div class="destination-card">
+                <img src="https://images.unsplash.com/photo-1577835052410-021601ad3cee?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fG5pc2Vrb3xlbnwwfHwwfHx8Mg%3D%3D">
+                <h6>Niseko</h6>
+            </div>
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-6 mb-4">
+            <div class="destination-card">
+                <img src="https://images.unsplash.com/photo-1599148874821-a3aa38f27ede?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8d2hpc3RsZXJ8ZW58MHx8MHx8fDI%3D">
+                <h6>Whistler</h6>
+            </div>
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-6 mb-4">
+            <div class="destination-card">
+                <img src="https://images.unsplash.com/photo-1558380932-9f0ed72f08b9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Q2hhbW9uaXh8ZW58MHx8MHx8fDI%3D">
+                <h6>Chamonix</h6>
+            </div>
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-6 mb-4">
+            <div class="destination-card">
+                <img src="https://images.unsplash.com/photo-1565885004858-c70de2d1af64?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fEFzcGVufGVufDB8fDB8fHwy">
+            <h6>Aspen</h6>
+        </div>
+    </div>
+
+        <div class="col-lg-2 col-md-4 col-6 mb-4">
+        <div class="destination-card">
+            <img src="https://images.unsplash.com/photo-1700251135922-2b6bba2d5fbd?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fFN0LiUyME1vcml0enxlbnwwfHwwfHx8Mg%3D%3D">
+            <h6>St. Moritz</h6>
+        </div>
+    </div>
+
+</div>
+
+</section>
+
+<section class="pb-5" id="resort">
+
+    <div class="popular-header">
+
+        <h2 class="section-title mb-0">
+            Popular Resorts
+        </h2>
+
+        <div class="slider-controls">
+            <button onclick="scrollLeftResorts()">←</button>
+            <button onclick="scrollRightResorts()">→</button>
+        </div>
+
+    </div>
+
+    <div class="resort-slider" id="resortSlider">
+
+        <div class="card resort-card">
+            <img src="https://images.unsplash.com/photo-1769029299328-31fa8472ef67?w=600">
+            <div class="card-body">
+                <h5>Zermatt Resort</h5>
+                <p>Switzerland</p>
+                <div class="price">$13.34</div>
+            </div>
+        </div>
+
+        <div class="card resort-card">
+            <img src="https://images.unsplash.com/photo-1642713434816-9ec9eb542aeb?w=600">
+            <div class="card-body">
+                <h5>Niseko Resort</h5>
+                <p>Japan</p>
+                <div class="price">$16.58</div>
+            </div>
+        </div>
+
+        <div class="card resort-card">
+            <img src="https://images.unsplash.com/photo-1765628658740-1e3d48fc038a?w=600">
+            <div class="card-body">
+                <h5>Chamonix Resort</h5>
+                <p>France</p>
+                <div class="price">$20.23</div>
+            </div>
+        </div>
+
+        <div class="card resort-card">
+            <img src="https://images.unsplash.com/photo-1720068940615-70e74f1afb36?w=600">
+            <div class="card-body">
+                <h5>Whistler Resort</h5>
+                <p>Canada</p>
+                <div class="price">$18.99</div>
+            </div>
+        </div>
+
+        <div class="card resort-card">
+            <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=600">
+            <div class="card-body">
+                <h5>Aspen Resort</h5>
+                <p>USA</p>
+                <div class="price">$21.50</div>
+            </div>
+        </div>
+
+        <div class="card resort-card">
+            <img src="https://images.unsplash.com/photo-1607283920858-d6693b1db8f1?w=600">
+            <div class="card-body">
+                <h5>St. Moritz Resort</h5>
+                <p>Switzerland</p>
+                <div class="price">$24.80</div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="section">
+
+    <div class="row align-items-center">
+
+    <div class="col-lg-5">
+
+    <div class="feature-box">
+        <h5>Luxury Experiences</h5>
+        <p>Exclusive ski vacations designed for travelers seeking premium comfort.</p>
+    </div>
+
+    <div class="feature-box">
+        <h5>Best Prices</h5>
+        <p>Access competitive pricing without sacrificing luxury or quality.</p>
+    </div>
+
+    <div class="feature-box">
+        <h5>Expert Travel Agents</h5>
+        <p>Dedicated professionals help plan every detail of your trip.</p>
+    </div>
+
+    </div>
+
+    <div class="col-lg-7">
+        <img class="feature-img" src="https://images.unsplash.com/photo-1486140525285-12e658d9ac0f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHdpbnRlcnxlbnwwfHwwfHx8Mg%3D%3D">
+    </div>
+
+    </div>
+
+</section>
+
+<section class="section pt-0">
+
+    <div class="popular-header">
+
+        <h2 class="section-title mb-0">
+            Client Reviews
+        </h2>
+
+        <div class="slider-controls">
+            <button onclick="scrollLeftReviews()">←</button>
+            <button onclick="scrollRightReviews()">→</button>
+        </div>
+
+    </div>
+
+    <div class="review-slider" id="reviewSlider">
+        <div class="testimonial-card">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=1000">
+
+            <h4>"The easiest ski vacation we've ever planned."</h4>
+
+            <p>
+                Arctic Travels organized everything from accommodation to lift passes.
+                The experience felt completely personalized and luxurious.
+            </p>
+
+            <strong>Michael Anderson</strong>
+
+            <div>⭐⭐⭐⭐⭐</div>
+        </div>
+
+        <div class="testimonial-card">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=1000">
+
+            <h4>"Amazing service and support."</h4>
+
+            <p>
+                Everything was arranged perfectly. We only had to enjoy the trip.
+            </p>
+
+            <strong>Sarah Wilson</strong>
+
+            <div>⭐⭐⭐⭐⭐</div>
+        </div>
+
+        <div class="testimonial-card">
+            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=1000">
+
+            <h4>"Best ski holiday ever."</h4>
+
+            <p>
+                Great resorts, excellent pricing, and very responsive agents.
+            </p>
+
+            <strong>David Brown</strong>
+
+            <div>⭐⭐⭐⭐⭐</div>
+        </div>
+
+    </div>
+
+</section>
+
+<footer class="rounded-0">
+
+    <div class="container rounded-0">
+
+        <div class="row">
+
+        <div class="col-lg-6">
+            <h3>Arctic Travels</h3>
+            <p>Premium Ski & Snowboarding Experiences Worldwide.</p>
+        </div>
+
+        <div class="col-lg-6 text-lg-end">
+            <a href="#">Home</a> |
+            <a href="#">Resorts</a> |
+            <a href="#">Lodging</a> |
+            <a href="#">Contact</a>
+        </div>
+
+        </div>
+
+        <hr>
+
+        <div class="text-center">
+            © 2026 Arctic Travels. All Rights Reserved.
+        </div>
+
+    </div>
+
+</footer>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+
+function scrollLeftResorts() {
+    document.getElementById('resortSlider').scrollBy({
+        left: -400,
+        behavior: 'smooth'
+    });
+}
+
+function scrollRightResorts() {
+    document.getElementById('resortSlider').scrollBy({
+        left: 400,
+        behavior: 'smooth'
+    });
+}
+
+function scrollLeftReviews() {
+    document.getElementById('reviewSlider').scrollBy({
+        left: -500,
+        behavior: 'smooth'
+    });
+}
+
+function scrollRightReviews() {
+    document.getElementById('reviewSlider').scrollBy({
+        left: 500,
+        behavior: 'smooth'
+    });
+}
+
+</script>
+
+</body>
+</html>
