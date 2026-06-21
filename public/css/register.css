@@ -1,0 +1,75 @@
+        html, body {
+            height: 100%;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #fff;
+            overflow-x: hidden;
+        }
+        
+        .auth-wrapper {
+            min-height: 100vh;
+        }
+
+        .auth-sidebar {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 4rem 3rem;
+            min-height: 100vh;
+        }
+
+        .brand-logo {
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .brand-logo span {
+            color: #93c5fd;
+        }
+
+        .form-underlined {
+            border: none;
+            border-bottom: 1px solid #ced4da;
+            border-radius: 0;
+            padding: 0.75rem 0;
+            background-color: transparent;
+            font-size: 1rem;
+        }
+
+        .form-underlined:focus {
+            box-shadow: none;
+            background-color: transparent;
+            border-bottom-color: #1d4ed8;
+        }
+
+        .btn-custom {
+            background-color: #3b82f6;
+            color: white;
+            border-radius: 8px;
+            padding: 0.6rem 2rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .btn-custom:hover {
+            background-color: #1d4ed8;
+            color: white;
+        }
+
+        .dot {
+            height: 8px;
+            width: 8px;
+            background-color: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 6px;
+        }
+
+        .dot.active {
+            background-color: white;
+            width: 24px;
+            border-radius: 4px;
+        }
