@@ -9,7 +9,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{{ asset('css/home.css') }}">
+<link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
 
 </head>
 
@@ -30,7 +30,7 @@
         <div class="collapse navbar-collapse" id="nav">
 
         <ul class="navbar-nav mx-auto">
-        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
         <li class="nav-item"><a class="nav-link" href="#destination">Destinations</a></li>
         <li class="nav-item"><a class="nav-link" href="#resort">Resorts</a></li>
         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
@@ -546,7 +546,7 @@
         </div>
 
         <div class="col-lg-6 text-lg-end">
-            <a href="/">Home</a> |
+            <a href="/">Dashboard</a> |
             <a href="#resort">Resorts</a> |
             <a href="#">Lodging</a> |
             <a href="#">Contact</a>

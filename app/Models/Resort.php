@@ -5,18 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Destination extends Model
+class Resort extends Model
 {
     use HasFactory;
 
     protected $fillable = [
+        'destination_id',
         'name',
+        'country',
         'description',
         'image',
+        'price'
     ];
 
-    public function resorts()
+    public function destination()
     {
-        return $this->hasMany(Resort::class);
+        return $this->belongsTo(Destination::class);
     }
 }
