@@ -33,7 +33,7 @@
         <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
         <li class="nav-item"><a class="nav-link" href="#destination">Destinations</a></li>
         <li class="nav-item"><a class="nav-link" href="#resort">Resorts</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
 
         <button class="btn btn-main">
@@ -335,6 +335,204 @@
     </div>
 
 </section>
+<section class="section" id="contact">
+
+    <div class="text-center mb-5">
+        <h2 class="section-title">
+            Connect With Our Team
+        </h2>
+
+        <p class="section-text">
+            Have questions about destinations, resorts, or booking packages?
+            Reach out and we'll help plan your perfect winter vacation.
+        </p>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-lg-6">
+
+            <div class="contact-form-box">
+
+                <h3 class="mb-4">
+                    Get In Touch
+                </h3>
+
+                <form>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <input
+                                type="text"
+                                class="form-control"
+                                placeholder="Your Name">
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <input
+                                type="email"
+                                class="form-control"
+                                placeholder="Your Email">
+                        </div>
+                    </div>
+
+                    <input
+                        type="text"
+                        class="form-control mb-3"
+                        placeholder="Subject">
+
+                    <textarea
+                        rows="6"
+                        class="form-control mb-3"
+                        placeholder="Write your message"></textarea>
+
+                    <button class="btn btn-main">
+                        Send Message
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-6">
+
+            <h3 class="mb-4">
+                Contact Details
+            </h3>
+
+            <p class="section-text mb-4">
+                Our travel specialists are available to help you choose
+                the best ski resorts and winter experiences.
+            </p>
+
+            <div class="contact-grid">
+
+                <div class="contact-card">
+                    <h6>📍 Address</h6>
+                    <p>United Kingdom, London</p>
+                </div>
+
+                <div class="contact-card">
+                    <h6>📞 Phone</h6>
+                    <p>+1 812 3456 7890</p>
+                </div>
+
+                <div class="contact-card">
+                    <h6>🕒 Availability</h6>
+                    <p>09:00 AM - 05:00 PM</p>
+                </div>
+
+                <div class="contact-card">
+                    <h6>✉️ Email</h6>
+                    <p>hello@arctictravels.com</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<section class="section pt-0">
+
+    <div class="text-center mb-5">
+
+        <h2 class="section-title">
+            Frequently Asked Questions
+        </h2>
+
+        <p class="section-text">
+            Find answers to the most common questions about our ski vacations.
+        </p>
+
+    </div>
+
+    <div class="row align-items-center">
+
+        <div class="col-lg-6">
+
+            <div class="accordion" id="faqAccordion">
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button
+                            class="accordion-button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#faq1">
+                            How can I book a resort?
+                        </button>
+                    </h2>
+
+                    <div id="faq1"
+                         class="accordion-collapse collapse show"
+                         data-bs-parent="#faqAccordion">
+
+                        <div class="accordion-body">
+                            Simply browse destinations, choose your preferred
+                            resort, and contact our team.
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button
+                            class="accordion-button collapsed"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#faq2">
+                            Are flights included?
+                        </button>
+                    </h2>
+
+                    <div id="faq2"
+                         class="accordion-collapse collapse"
+                         data-bs-parent="#faqAccordion">
+
+                        <div class="accordion-body">
+                            Flights can be added as part of a custom package.
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button
+                            class="accordion-button collapsed"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#faq3">
+                            Do you offer family packages?
+                        </button>
+                    </h2>
+
+                    <div id="faq3"
+                         class="accordion-collapse collapse"
+                         data-bs-parent="#faqAccordion">
+
+                        <div class="accordion-body">
+                            Yes, we provide family-friendly resorts and
+                            customized holiday packages.
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-6">
+            <img
+                class="faq-image" src="https://images.unsplash.com/photo-1615890932417-89da415105d2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Y3VzdG9tZXIlMjBzZXJ2aWNlfGVufDB8MXwwfHx8MA%3D%3D">
+
+        </div>
+
+    </div>
+
+</section>
 
 <footer class="rounded-0">
 
@@ -348,8 +546,8 @@
         </div>
 
         <div class="col-lg-6 text-lg-end">
-            <a href="#">Home</a> |
-            <a href="#">Resorts</a> |
+            <a href="/">Home</a> |
+            <a href="#resort">Resorts</a> |
             <a href="#">Lodging</a> |
             <a href="#">Contact</a>
         </div>
