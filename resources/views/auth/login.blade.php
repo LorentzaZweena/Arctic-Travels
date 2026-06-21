@@ -8,88 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background-color: #fff;
-            overflow-x: hidden;
-        }
-        
-        .auth-wrapper {
-            min-height: 100vh;
-        }
-
-        /* Sisi Kiri (Sidebar Biru) */
-        .auth-sidebar {
-            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 4rem 3rem;
-            min-height: 100vh;
-        }
-
-        .brand-logo {
-            font-size: 1.75rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
-
-        .brand-logo span {
-            color: #93c5fd;
-        }
-
-        /* Input Minimalis Garis Bawah */
-        .form-underlined {
-            border: none;
-            border-bottom: 1px solid #ced4da;
-            border-radius: 0;
-            padding: 0.75rem 0;
-            background-color: transparent;
-            font-size: 1rem;
-        }
-
-        .form-underlined:focus {
-            box-shadow: none;
-            background-color: transparent;
-            border-bottom-color: #1d4ed8;
-        }
-
-        /* Tombol Sign In */
-        .btn-custom {
-            background-color: #3b82f6;
-            color: white;
-            border-radius: 8px;
-            padding: 0.6rem 2rem;
-            font-weight: 500;
-            transition: all 0.2s ease;
-        }
-
-        .btn-custom:hover {
-            background-color: #1d4ed8;
-            color: white;
-        }
-
-        /* Dots Indicator */
-        .dot {
-            height: 8px;
-            width: 8px;
-            background-color: rgba(255, 255, 255, 0.4);
-            border-radius: 50%;
-            display: inline-block;
-            margin-right: 6px;
-        }
-
-        .dot.active {
-            background-color: white;
-            width: 24px;
-            border-radius: 4px;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
 </head>
 <body>
 
@@ -102,18 +21,13 @@
             </div>
             
             <div class="text-center my-auto px-4">
-                <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&w=500&q=80" alt="Illustration" class="img-fluid mb-5 rounded" style="max-height: 260px; object-fit: cover;">
+                <img src="https://images.unsplash.com/photo-1455156218388-5e61b526818b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Illustration" class="img-fluid mb-5 rounded" style="max-height: 260px; object-fit: cover;">
                 <h2 class="fw-bold mb-3" style="font-size: 2.25rem;">Welcome!</h2>
                 <p class="text-white-50 px-4" style="font-size: 1.05rem; line-height: 1.6;">
                     Plan your ideal ski trip from home with the help of professionals. Experience luxury skiing holidays worldwide.
                 </p>
             </div>
 
-            <div class="ps-3">
-                <span class="dot active"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-            </div>
         </div>
 
         <div class="col-lg-6 d-flex align-items-center justify-content-center bg-white py-5">
