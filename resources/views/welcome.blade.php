@@ -20,25 +20,29 @@
         <div class="container px-3">
 
         <a class="navbar-brand brand" href="#">
-        <span>A</span>rctic Travels
+            <span>A</span>rctic Travels
         </a>
 
         <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
-        <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="nav">
 
         <ul class="navbar-nav mx-auto">
-        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="#destination">Destinations</a></li>
-        <li class="nav-item"><a class="nav-link" href="#resort">Resorts</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#destination">Destinations</a></li>
+            <li class="nav-item"><a class="nav-link" href="#resort">Resorts</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
 
-        <button class="btn btn-main">
-        Book Here
-        </button>
+        @auth
+            <a href="{{ Auth::user()->role === 'admin' ? route('admin.dashboard') : '#' }}" class="btn btn-outline-primary rounded-3 px-3">
+                <i class="bi bi-user"></i> {{ Auth::user()->name }}
+            </a>
+        @else
+            <a href="{{ route('login') }}" class="btn btn-primary rounded-3 px-3">Login</a>
+        @endauth
 
         </div>
     </div>
@@ -60,9 +64,9 @@
             Easily plan your ideal ski trip from home with the help of professionals. Experience luxury skiing holidays at world-class resorts with exclusive pricing and personalized support.
         </p>
 
-        <button class="btn btn-main btn-lg">
-            Book Here
-        </button>
+        <a href="#resort" class="btn btn-primary rounded-3 px-3">
+            Book Now
+        </a>
 
         <div class="booking-box">
 
@@ -170,29 +174,87 @@
 <section class="pb-5" id="resort">
 
     <div class="container my-5">
-    <h2 class="fw-bold mb-4">Our Luxury Resorts</h2>
-    <div class="row">
-        @foreach($resorts as $resort)
-        <div class="col-md-4 mb-4">
-            <div class="card h-100 shadow-sm border-0">
-                <img src="{{ $resort->image }}" class="card-img-top" alt="{{ $resort->name }}" style="height: 220px; object-fit: cover;">
-                
-                <div class="card-body d-flex flex-column">
-                    <span class="text-primary small fw-bold text-uppercase">{{ $resort->country }}</span>
-                    <h5 class="card-title fw-bold mt-1">{{ $resort->name }}</h5>
-                    <p class="card-text text-muted small">{{ Str::limit($resort->description, 100) }}</p>
+    <h2 class="text-center fw-bold mb-4">Our Luxury Winter Resorts</h2>
+    <div class="row g-4">
+        
+        @forelse($resorts as $resort)
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
+                    <img src="{{ $resort->image }}" class="card-img-top" alt="{{ $resort->name }}" style="height: 220px; object-fit: cover;">
                     
-                    <div class="mt-auto d-flex justify-content-between align-items-center pt-3 border-top">
-                        <div>
-                            <span class="text-muted small">Price</span>
-                            <p class="fw-bold text-success mb-0">$ {{ number_format($resort->price, 0, ',', '.') }}</p>
+                    <div class="card-body p-4">
+                        <span class="badge bg-primary mb-2">{{ $resort->destination->name ?? 'Uncategorized' }}</span>
+                        <h5 class="card-title fw-bold text-dark">{{ $resort->name }}</h5>
+                        <p class="text-muted small"><i class="bi bi-geo-alt-fill text-danger"></i> {{ $resort->country }}</p>
+                        
+                        <p class="card-text text-secondary small">
+                            {{ Str::limit($resort->description, 100, '...') }}
+                        </p>
+                        
+                        <div class="d-flex justify-content-between align-items-center mt-4">
+                            <div>
+                                <span class="text-muted block small">Price/Night</span>
+                                <h5 class="fw-bold text-success m-0">$ {{ number_format($resort->price, 0, ',', '.') }}</h5>
+                            </div>
+                            
+                            @auth
+                                <button class="btn btn-primary rounded-3 px-3" data-bs-toggle="modal" data-bs-target="#bookModal{{ $resort->id }}">
+                                    Book Now
+                                </button>
+                            @else
+                                <a href="{{ route('login') }}" class="btn btn-outline-secondary rounded-3 px-3">Login to Book</a>
+                            @endauth
                         </div>
-                        <a href="#" class="btn btn-primary btn-sm px-3">Book Now</a>
                     </div>
                 </div>
             </div>
-        </div>
-        @endforeach
+
+            <div class="modal fade" id="bookModal{{ $resort->id }}" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content border-0 shadow rounded-4">
+                        <div class="modal-header bg-light border-0 py-3">
+                            <h5 class="modal-title fw-bold">Book {{ $resort->name }}</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <form action="{{ route('resorts.book', $resort->id) }}" method="POST">
+                            @csrf
+                            <div class="modal-body p-4">
+                                <div class="mb-3 text-center">
+                                    <span class="text-muted small">Price per Night</span>
+                                    <h4 class="fw-bold text-success">$ {{ number_format($resort->price, 0, ',', '.') }}</h4>
+                                </div>
+                                
+                                <div class="row g-3">
+                                    <div class="col-6">
+                                        <label class="form-label small fw-medium">Check-In Date</label>
+                                        <input type="date" name="check_in" class="form-control" min="{{ date('Y-m-d') }}" required>
+                                    </div>
+                                    <div class="col-6">
+                                        <label class="form-label small fw-medium">Check-Out Date</label>
+                                        <input type="date" name="check_out" class="form-control" min="{{ date('Y-m-d', strtotime('+1 day')) }}" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label small fw-medium">Total Guests</label>
+                                        <input type="number" name="guests" class="form-control" min="1" max="10" placeholder="1" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer border-0 p-4 pt-0">
+                                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+                                <button type="submit" class="btn btn-primary px-4">Confirm Booking</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        @empty
+            <div class="col-12 text-center text-muted py-5">
+                <i class="bi bi-building-exclamation fs-1"></i>
+                <p class="mt-2">Maaf, saat ini belum ada resort aktif yang tersedia.</p>
+            </div>
+        @endforelse
+
     </div>
 </div>
 

@@ -63,4 +63,10 @@ class ResortController extends Controller
 
         return redirect()->route('admin.dashboard')->with('success', 'The resort has been successfully deleted!');
     }
+
+    public function landing()
+    {
+        $resorts = Resort::with('destination')->get();
+        return view('welcome', compact('resorts'));
+    }
 }

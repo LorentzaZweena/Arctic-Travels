@@ -6,13 +6,9 @@ use App\Models\Destination;
 use App\Models\Resort;
 
 use App\Http\Controllers\ResortController;
+use App\Http\Controllers\BookingController;
 
-Route::get('/', function () {
-    $destinations = Destination::all();
-    $resorts = Resort::all();
-    return view('welcome', compact('destinations', 'resorts'));
-});
-
+Route::get('/', [App\Http\Controllers\ResortController::class, 'landing'])->name('landing');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -21,6 +17,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::post('/resort/{resort}/book', [BookingController::class, 'store'])->name('resorts.book');
 });
 
 Route::middleware(['auth', 'admin'])->group(function () {
