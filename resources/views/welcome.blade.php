@@ -30,7 +30,7 @@
         <div class="collapse navbar-collapse" id="nav">
 
         <ul class="navbar-nav mx-auto">
-        <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
         <li class="nav-item"><a class="nav-link" href="#destination">Destinations</a></li>
         <li class="nav-item"><a class="nav-link" href="#resort">Resorts</a></li>
         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
@@ -169,76 +169,32 @@
 
 <section class="pb-5" id="resort">
 
-    <div class="popular-header">
-
-        <h2 class="section-title mb-0">
-            Popular Resorts
-        </h2>
-
-        <div class="slider-controls">
-            <button onclick="scrollLeftResorts()">←</button>
-            <button onclick="scrollRightResorts()">→</button>
+    <div class="container my-5">
+    <h2 class="fw-bold mb-4">Our Luxury Resorts</h2>
+    <div class="row">
+        @foreach($resorts as $resort)
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm border-0">
+                <img src="{{ $resort->image }}" class="card-img-top" alt="{{ $resort->name }}" style="height: 220px; object-fit: cover;">
+                
+                <div class="card-body d-flex flex-column">
+                    <span class="text-primary small fw-bold text-uppercase">{{ $resort->country }}</span>
+                    <h5 class="card-title fw-bold mt-1">{{ $resort->name }}</h5>
+                    <p class="card-text text-muted small">{{ Str::limit($resort->description, 100) }}</p>
+                    
+                    <div class="mt-auto d-flex justify-content-between align-items-center pt-3 border-top">
+                        <div>
+                            <span class="text-muted small">Price</span>
+                            <p class="fw-bold text-success mb-0">$ {{ number_format($resort->price, 0, ',', '.') }}</p>
+                        </div>
+                        <a href="#" class="btn btn-primary btn-sm px-3">Book Now</a>
+                    </div>
+                </div>
+            </div>
         </div>
-
+        @endforeach
     </div>
-
-    <div class="resort-slider" id="resortSlider">
-
-        <div class="card resort-card">
-            <img src="https://images.unsplash.com/photo-1769029299328-31fa8472ef67?w=600">
-            <div class="card-body">
-                <h5>Zermatt Resort</h5>
-                <p>Switzerland</p>
-                <div class="price">$13.34</div>
-            </div>
-        </div>
-
-        <div class="card resort-card">
-            <img src="https://images.unsplash.com/photo-1642713434816-9ec9eb542aeb?w=600">
-            <div class="card-body">
-                <h5>Niseko Resort</h5>
-                <p>Japan</p>
-                <div class="price">$16.58</div>
-            </div>
-        </div>
-
-        <div class="card resort-card">
-            <img src="https://images.unsplash.com/photo-1765628658740-1e3d48fc038a?w=600">
-            <div class="card-body">
-                <h5>Chamonix Resort</h5>
-                <p>France</p>
-                <div class="price">$20.23</div>
-            </div>
-        </div>
-
-        <div class="card resort-card">
-            <img src="https://images.unsplash.com/photo-1720068940615-70e74f1afb36?w=600">
-            <div class="card-body">
-                <h5>Whistler Resort</h5>
-                <p>Canada</p>
-                <div class="price">$18.99</div>
-            </div>
-        </div>
-
-        <div class="card resort-card">
-            <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=600">
-            <div class="card-body">
-                <h5>Aspen Resort</h5>
-                <p>USA</p>
-                <div class="price">$21.50</div>
-            </div>
-        </div>
-
-        <div class="card resort-card">
-            <img src="https://images.unsplash.com/photo-1607283920858-d6693b1db8f1?w=600">
-            <div class="card-body">
-                <h5>St. Moritz Resort</h5>
-                <p>Switzerland</p>
-                <div class="price">$24.80</div>
-            </div>
-        </div>
-
-    </div>
+</div>
 
 </section>
 
@@ -534,6 +490,7 @@
 
 </section>
 
+</div>
 <footer class="rounded-0">
 
     <div class="container rounded-0">
@@ -563,8 +520,6 @@
     </div>
 
 </footer>
-
-</div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>

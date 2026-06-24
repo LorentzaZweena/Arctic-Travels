@@ -2,9 +2,13 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Models\Destination;
+use App\Models\Resort;
 
 Route::get('/', function () {
-    return view('welcome');
+    $destinations = Destination::all();
+    $resorts = Resort::all();
+    return view('welcome', compact('destinations', 'resorts'));
 });
 
 Route::get('/dashboard', function () {
@@ -17,4 +21,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::middleware(['auth', 'admin'])->group(function () {
+    
+    Route::get('/admin/dashboard', function () {
+        return view('admin.dashboard');
+    })->name('admin.dashboard');
+});
 require __DIR__.'/auth.php';

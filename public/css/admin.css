@@ -1,0 +1,134 @@
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f1f2f7;
+            overflow-x: hidden;
+        }
+
+        :root {
+            --primary-theme: #2563eb;
+            --sidebar-bg: #2563eb;
+            --sidebar-active: #2563eb;
+        }
+
+        .dashboard-wrapper {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 260px;
+            background-color: var(--sidebar-bg);
+            color: white;
+            transition: all 0.3s;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar-header {
+            padding: 1.5rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            background-color: var(--sidebar-active);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sidebar-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            margin-top: 1rem;
+        }
+
+        .sidebar-menu li a {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 0.85rem 1.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+
+        .sidebar-menu li a:hover, .sidebar-menu li.active a {
+            color: white;
+            background-color: var(--sidebar-active);
+            border-left: 4px solid #fff;
+        }
+
+        .main-content {
+            flex-grow: 1;
+            background-color: #f6f6fb;
+        }
+
+        .topbar {
+            background-color: white;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .search-box input {
+            border: 1px solid #e2e8f0;
+            background-color: #f8fafc;
+            border-radius: 6px;
+            padding: 0.4rem 1rem;
+            width: 300px;
+        }
+
+        .content-card {
+            background: white;
+            border-radius: 12px;
+            border: none;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            padding: 2rem;
+        }
+
+        .badge-active {
+            background-color: #def7ec;
+            color: #03543f;
+            padding: 0.4rem 0.75rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .table-custom th {
+            color: #718096;
+            font-weight: 500;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            border-bottom: 2px solid #edf2f7;
+        }
+
+        .table-custom td {
+            vertical-align: middle;
+            font-size: 0.95rem;
+            color: #2d3748;
+            padding: 1rem 0.5rem;
+        }
+
+        .resort-img-thumb {
+            width: 45px;
+            height: 45px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .btn-action {
+            background: none;
+            border: none;
+            color: #718096;
+            margin: 0 3px;
+            transition: color 0.2s;
+        }
+        .btn-action:hover { 
+            color: var(--primary-theme); 
+        }
