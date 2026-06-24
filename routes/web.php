@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Destination;
 use App\Models\Resort;
 
+use App\Http\Controllers\ResortController;
+
 Route::get('/', function () {
     $destinations = Destination::all();
     $resorts = Resort::all();
@@ -22,9 +24,8 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware(['auth', 'admin'])->group(function () {
-    
-    Route::get('/admin/dashboard', function () {
-        return view('admin.dashboard');
-    })->name('admin.dashboard');
+    Route::get('/admin/dashboard', [ResortController::class, 'index'])->name('admin.dashboard');
+    Route::get('/admin/resort/create', [ResortController::class, 'create'])->name('admin.resort.create');
+    Route::post('/admin/resort/store', [ResortController::class, 'store'])->name('admin.resort.store');
 });
 require __DIR__.'/auth.php';

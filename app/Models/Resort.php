@@ -4,16 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Attributes\Fillable;
 
 class Resort extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'destination_id',
-        'name',
-        'description',
-        'price_per_night',
-        'capacity',
+        'destination_id', 
+        'name', 
+        'country', 
+        'description', 
+        'price', 
         'image'
     ];
 

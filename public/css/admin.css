@@ -1,4 +1,4 @@
-        body {
+body {
             font-family: 'Poppins', sans-serif;
             background-color: #f1f2f7;
             overflow-x: hidden;
@@ -7,22 +7,24 @@
         :root {
             --primary-theme: #2563eb;
             --sidebar-bg: #2563eb;
-            --sidebar-active: #2563eb;
+            --sidebar-active: #1d4ed8;
         }
 
         .dashboard-wrapper {
             display: flex;
             min-height: 100vh;
+            position: relative;
         }
 
         .sidebar {
             width: 260px;
             background-color: var(--sidebar-bg);
             color: white;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
             flex-shrink: 0;
             display: flex;
             flex-direction: column;
+            z-index: 1040;
         }
 
         .sidebar-header {
@@ -32,14 +34,13 @@
             background-color: var(--sidebar-active);
             display: flex;
             align-items: center;
-            gap: 10px;
+            justify-content: space-between;
         }
 
         .sidebar-menu {
             list-style: none;
             padding: 0;
-            margin: 0;
-            margin-top: 1rem;
+            margin: 1rem 0 0 0;
         }
 
         .sidebar-menu li a {
@@ -63,6 +64,7 @@
         .main-content {
             flex-grow: 1;
             background-color: #f6f6fb;
+            min-width: 0;
         }
 
         .topbar {
@@ -71,7 +73,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 2rem;
+            padding: 0 1.5rem;
             box-shadow: 0 2px 4px rgba(0,0,0,0.02);
         }
 
@@ -80,15 +82,15 @@
             background-color: #f8fafc;
             border-radius: 6px;
             padding: 0.4rem 1rem;
-            width: 300px;
+            width: 100%;
+            max-width: 300px;
         }
 
         .content-card {
             background: white;
             border-radius: 12px;
-            border: none;
             box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
-            padding: 2rem;
+            padding: 1.5rem;
         }
 
         .badge-active {
@@ -127,8 +129,21 @@
             border: none;
             color: #718096;
             margin: 0 3px;
-            transition: color 0.2s;
         }
-        .btn-action:hover { 
-            color: var(--primary-theme); 
+
+        @media (max-width: 991.98px) {
+            .sidebar {
+                position: fixed;
+                top: 0;
+                bottom: 0;
+                left: -260px;
+            }
+        
+            .sidebar.show {
+                left: 0;
+            }
+
+            .search-box {
+                display: none;
+            }
         }
