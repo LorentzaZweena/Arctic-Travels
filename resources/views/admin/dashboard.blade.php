@@ -107,8 +107,17 @@
                                 <td><span class="fw-bold text-dark">$ {{ number_format($resort->price, 0, ',', '.') }}</span></td>
                                 <td><span class="badge-active">Active</span></td>
                                 <td class="text-center">
-                                    <button class="btn-action" title="Edit"><i class="bi bi-pencil-square fs-5"></i></button>
-                                    <button class="btn-action text-danger" title="Delete"><i class="bi bi-trash3 fs-5"></i></button>
+                                    <a href="{{ route('admin.resort.edit', $resort->id) }}" class="btn btn-link p-0 text-secondary me-2" title="Edit">
+                                        <i class="bi bi-pencil-square fs-5"></i>
+                                    </a>
+
+                                    <form action="{{ route('admin.resort.destroy', $resort->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Are you sure you want to delete this resort?')">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-link p-0 text-danger border-0 alignment-baseline" title="Delete">
+                                            <i class="bi bi-trash3 fs-5"></i>
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                             @empty

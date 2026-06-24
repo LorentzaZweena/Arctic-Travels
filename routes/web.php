@@ -27,5 +27,9 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/dashboard', [ResortController::class, 'index'])->name('admin.dashboard');
     Route::get('/admin/resort/create', [ResortController::class, 'create'])->name('admin.resort.create');
     Route::post('/admin/resort/store', [ResortController::class, 'store'])->name('admin.resort.store');
+    Route::get('/admin/resort/{resort}/edit', [ResortController::class, 'edit'])->name('admin.resort.edit');
+    Route::put('/admin/resort/{resort}', [ResortController::class, 'update'])->name('admin.resort.update');
+    Route::delete('/admin/resort/{resort}', [ResortController::class, 'destroy'])->name('admin.resort.destroy');
 });
+
 require __DIR__.'/auth.php';
