@@ -10,7 +10,10 @@ use App\Http\Controllers\BookingController;
 
 Route::get('/', [App\Http\Controllers\ResortController::class, 'landing'])->name('landing');
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    if (Auth::user()->role === 'admin') {
+        return redirect()->route('admin.dashboard');
+    }
+    return redirect()->route('landing');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -27,6 +30,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/resort/{resort}/edit', [ResortController::class, 'edit'])->name('admin.resort.edit');
     Route::put('/admin/resort/{resort}', [ResortController::class, 'update'])->name('admin.resort.update');
     Route::delete('/admin/resort/{resort}', [ResortController::class, 'destroy'])->name('admin.resort.destroy');
+    Route::get('/admin/bookings', [BookingController::class, 'adminIndex'])->name('admin.bookings.index');
+    Route::put('/admin/bookings/{booking}/status', [BookingController::class, 'updateStatus'])->name('admin.bookings.updateStatus');
 });
 
 require __DIR__.'/auth.php';

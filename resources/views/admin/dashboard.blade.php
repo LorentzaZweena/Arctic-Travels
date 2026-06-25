@@ -27,7 +27,9 @@
             <li class="active"><a href="#"><i class="bi bi-building-gear"></i> Manage Resorts</a></li>
             <li><a href="#"><i class="bi bi-person"></i> Users</a></li>
             <li><a href="#"><i class="bi bi-geo-alt-fill"></i> Destinations</a></li>
-            <li><a href="#"><i class="bi bi-calendar-check-fill"></i> Bookings</a></li>
+            <li class="{{ Route::is('admin.bookings.index') ? 'active' : '' }}">
+                <a href="{{ route('admin.bookings.index') }}"><i class="bi bi-calendar-check-fill"></i> Bookings</a>
+            </li>
             <li><a href="#"><i class="bi bi-chat-left-heart-fill"></i> Reviews</a></li>
             <li><a href="#"><i class="bi bi-envelope-fill"></i> Contacts</a></li>
         </ul>

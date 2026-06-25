@@ -202,7 +202,7 @@
                                     Book Now
                                 </button>
                             @else
-                                <a href="{{ route('login') }}" class="btn btn-outline-secondary rounded-3 px-3">Login to Book</a>
+                                <a href="{{ route('login') }}" class="btn btn-primary rounded-3 px-3">Login to Book</a>
                             @endauth
                         </div>
                     </div>

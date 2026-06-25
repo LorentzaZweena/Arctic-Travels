@@ -18,21 +18,41 @@ class BookingController extends Controller
             'guests'    => 'required|integer|min:1',
         ]);
 
-        $checkIn = Carbon::parse($request->check_in);
-        $checkOut = Carbon::parse($request->check_out);
+        $checkIn = \Carbon\Carbon::parse($request->check_in);
+        $checkOut = \Carbon\Carbon::parse($request->check_out);
         $durationDays = $checkIn->diffInDays($checkOut);
+        
         $totalPrice = $durationDays * $resort->price;
+        $booking = new Booking();
+        $booking->user_id = \Illuminate\Support\Facades\Auth::id();
+        $booking->resort_id = $resort->id;
+        $booking->check_in = $request->check_in;
+        $booking->check_out = $request->check_out;
+        $booking->guest_count = $request->guests;
+        $booking->total_price = $totalPrice;
+        $booking->status = 'pending';
+        $booking->save();
 
-        Booking::create([
-            'user_id'     => Auth::id(),
-            'resort_id'   => $resort->id,
-            'check_in'    => $request->check_in,
-            'check_out'   => $request->check_out,
-            'guests'      => $request->guests,
-            'total_price' => $totalPrice,
-            'status'      => 'pending',
+        return redirect()->route('landing')->with('success', 'Your booking has been successfully submitted!');
+    }
+
+    public function adminIndex()
+    {
+        $bookings = Booking::with(['user', 'resort'])->latest()->get();
+        
+        return view('admin.booking', compact('bookings'));
+    }
+
+    public function updateStatus(Request $request, Booking $booking)
+    {
+        $request->validate([
+            'status' => 'required|in:approved,canceled'
         ]);
 
-        return redirect()->route('landing')->with('success', 'Your booking has been submitted successfully! Please wait for confirmation from the admin.');
+        $booking->update([
+            'status' => $request->status
+        ]);
+
+        return redirect()->back()->with('success', 'Status booking berhasil diperbarui!');
     }
 }
