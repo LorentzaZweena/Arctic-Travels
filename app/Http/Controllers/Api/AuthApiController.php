@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class AuthApiController extends Controller
 {
@@ -26,7 +29,7 @@ class AuthApiController extends Controller
 
         return response()->json([
             'success'      => true,
-            'message'      => 'Registrasi berhasil!',
+            'message'      => 'Registration was successful!',
             'access_token' => $token,
             'token_type'   => 'Bearer',
             'data'         => $user
@@ -38,7 +41,7 @@ class AuthApiController extends Controller
         if (!Auth::attempt($request->only('email', 'password'))) {
             return response()->json([
                 'success' => false,
-                'message' => 'Email atau password salah.'
+                'message' => 'Invalid email or password.'
             ], 401);
         }
 
@@ -48,7 +51,7 @@ class AuthApiController extends Controller
 
         return response()->json([
             'success'      => true,
-            'message' => 'Login berhasil!',
+            'message' => 'Login was successful!',
             'access_token' => $token,
             'token_type'   => 'Bearer',
             'data'         => $user
