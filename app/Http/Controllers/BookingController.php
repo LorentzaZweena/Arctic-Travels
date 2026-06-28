@@ -17,20 +17,14 @@ class BookingController extends Controller
             'check_out'   => 'required|date|after:check_in',
             'guest_count' => 'required|integer|min:1',
         ]);
-
         $resort = Resort::findOrFail($resort_id);
-
         $checkIn = Carbon::parse($request->check_in);
         $checkOut = Carbon::parse($request->check_out);
-
         $durationInNights = $checkIn->diffInDays($checkOut);
-
         if ($durationInNights == 0) {
             $durationInNights = 1;
         }
-
         $totalPrice = $resort->price * $durationInNights;
-
         Booking::create([
             'user_id'      => Auth::id(),
             'resort_id'    => $resort->id,
@@ -40,7 +34,6 @@ class BookingController extends Controller
             'total_price'  => $totalPrice,
             'status'       => 'pending',
         ]);
-
         return redirect()->back()->with('success', 'Booking created successfully!');
     }
 
