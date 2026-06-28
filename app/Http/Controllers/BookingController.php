@@ -53,6 +53,16 @@ class BookingController extends Controller
             'status' => $request->status
         ]);
 
-        return redirect()->back()->with('success', 'Status booking berhasil diperbarui!');
+        return redirect()->back()->with('success', 'The booking status has been successfully updated!');
+    }
+
+    public function myBookings()
+    {
+        $bookings = Booking::with('resort')
+                            ->where('user_id', Auth::id())
+                            ->latest()
+                            ->get();
+
+        return view('customer.my-bookings', compact('bookings'));
     }
 }

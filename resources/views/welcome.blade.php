@@ -37,9 +37,15 @@
         </ul>
 
         @auth
-            <a href="{{ Auth::user()->role === 'admin' ? route('admin.dashboard') : '#' }}" class="btn btn-outline-primary rounded-3 px-3">
-                <i class="bi bi-user"></i> {{ Auth::user()->name }}
-            </a>
+            <div class="d-flex align-items-center gap-3">
+                <a href="{{ route('customer.bookings') }}" class="nav-link fw-medium text-dark me-2">
+                    <i class="bi bi-journal-check me-1"></i> My Bookings
+                </a>
+
+                <a href="{{ Auth::user()->role === 'admin' ? route('admin.dashboard') : '#' }}" class="btn btn-primary rounded-3 px-3">
+                    <i class="bi bi-person-circle"></i> {{ Auth::user()->name }}
+                </a>
+            </div>
         @else
             <a href="{{ route('login') }}" class="btn btn-primary rounded-3 px-3">Login</a>
         @endauth

@@ -21,6 +21,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::post('/resort/{resort}/book', [BookingController::class, 'store'])->name('resorts.book');
+    Route::get('/my-bookings', [BookingController::class, 'myBookings'])->name('customer.bookings');
 });
 
 Route::middleware(['auth', 'admin'])->group(function () {
