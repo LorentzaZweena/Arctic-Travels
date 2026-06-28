@@ -10,30 +10,38 @@ use Carbon\Carbon;
 
 class BookingController extends Controller
 {
-    public function store(Request $request, Resort $resort)
+    public function store(Request $request, $resort_id)
     {
         $request->validate([
-            'check_in'  => 'required|date|after_or_equal:today',
-            'check_out' => 'required|date|after:check_in',
-            'guests'    => 'required|integer|min:1',
+            'check_in'    => 'required|date',
+            'check_out'   => 'required|date|after:check_in',
+            'guest_count' => 'required|integer|min:1',
         ]);
 
-        $checkIn = \Carbon\Carbon::parse($request->check_in);
-        $checkOut = \Carbon\Carbon::parse($request->check_out);
-        $durationDays = $checkIn->diffInDays($checkOut);
-        
-        $totalPrice = $durationDays * $resort->price;
-        $booking = new Booking();
-        $booking->user_id = \Illuminate\Support\Facades\Auth::id();
-        $booking->resort_id = $resort->id;
-        $booking->check_in = $request->check_in;
-        $booking->check_out = $request->check_out;
-        $booking->guest_count = $request->guests;
-        $booking->total_price = $totalPrice;
-        $booking->status = 'pending';
-        $booking->save();
+        $resort = Resort::findOrFail($resort_id);
 
-        return redirect()->route('landing')->with('success', 'Your booking has been successfully submitted!');
+        $checkIn = Carbon::parse($request->check_in);
+        $checkOut = Carbon::parse($request->check_out);
+
+        $durationInNights = $checkIn->diffInDays($checkOut);
+
+        if ($durationInNights == 0) {
+            $durationInNights = 1;
+        }
+
+        $totalPrice = $resort->price * $durationInNights;
+
+        Booking::create([
+            'user_id'      => Auth::id(),
+            'resort_id'    => $resort->id,
+            'check_in'     => $request->check_in,
+            'check_out'    => $request->check_out,
+            'guest_count'  => $request->guest_count,
+            'total_price'  => $totalPrice,
+            'status'       => 'pending',
+        ]);
+
+        return redirect()->back()->with('success', 'Booking created successfully!');
     }
 
     public function adminIndex()

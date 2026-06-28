@@ -42,9 +42,15 @@
                     <i class="bi bi-journal-check me-1"></i> My Bookings
                 </a>
 
-                <a href="{{ Auth::user()->role === 'admin' ? route('admin.dashboard') : '#' }}" class="btn btn-primary rounded-3 px-3">
+                {{-- <a href="{{ Auth::user()->role === 'admin' ? route('admin.dashboard') : '#' }}" class="btn btn-primary rounded-3 px-3">
                     <i class="bi bi-person-circle"></i> {{ Auth::user()->name }}
-                </a>
+                </a> --}}
+                <form method="POST" action="{{ route('logout') }}" class="d-inline">
+                    @csrf
+                    <button type="submit" class="btn btn-outline-danger rounded-3 px-3">
+                        <i class="bi bi-box-arrow-right"></i> Logout
+                    </button>
+                </form>
             </div>
         @else
             <a href="{{ route('login') }}" class="btn btn-primary rounded-3 px-3">Login</a>
@@ -222,14 +228,18 @@
                             <h5 class="modal-title fw-bold">Book {{ $resort->name }}</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
+                        @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul class="mb-0">
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                         <form action="{{ route('resorts.book', $resort->id) }}" method="POST">
                             @csrf
                             <div class="modal-body p-4">
-                                <div class="mb-3 text-center">
-                                    <span class="text-muted small">Price per Night</span>
-                                    <h4 class="fw-bold text-success">$ {{ number_format($resort->price, 0, ',', '.') }}</h4>
-                                </div>
-                                
                                 <div class="row g-3">
                                     <div class="col-6">
                                         <label class="form-label small fw-medium">Check-In Date</label>
@@ -241,7 +251,7 @@
                                     </div>
                                     <div class="col-12">
                                         <label class="form-label small fw-medium">Total Guests</label>
-                                        <input type="number" name="guests" class="form-control" min="1" max="10" placeholder="1" required>
+                                        <input type="number" name="guest_count" class="form-control" min="1" max="10" placeholder="1" required>
                                     </div>
                                 </div>
                             </div>
