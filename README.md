@@ -35,7 +35,7 @@ Arctic Travels is a winter-themed luxury resort booking and management web appli
 
 1. **Clone the Repository**
    ```bash
-   git clone [https://github.com/LorentzaZweena/Arctic-Travels.git](https://github.com/LorentzaZweena/Arctic-Travels.git)
+   git clone https://github.com/LorentzaZweena/Arctic-Travels.git
    cd Arctic-Travels
 
 2. **Install PHP & JavaScript Dependencies**
@@ -59,13 +59,11 @@ DB_PORT=3306
 DB_DATABASE=arctic_travels
 DB_USERNAME=root
 DB_PASSWORD=
-
 ```
 
 4. **Generate the Application Key**
 ```bash
 php artisan key:generate
-
 ```
 
 
@@ -73,14 +71,12 @@ php artisan key:generate
 Execute this command to create the tables along with sample data (User, Admin, Resort):
 ```bash
 php artisan migrate --seed
-
 ```
 
 
 6. **Start the Local Development Server**
 ```bash
 php artisan serve
-
 ```
 
 
@@ -104,4 +100,4 @@ This project comes with a pre-configured Postman collection. You can test the AP
 *Note: Make sure to include the `Accept: application/json` header on every request in Postman.*
 
 ## 👥 Contributions
-This project was developed independently as part of a personal portfolio for Full-Stack / Backend Web Developmen*.
+This project was developed independently as part of a personal portfolio for Full-Stack / Backend Web Development.
